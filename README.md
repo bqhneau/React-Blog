@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# 项目笔记
+## 阶段一(对`react`进行降级)：
+    1、处理脚手架：清除不必要文件，并把index.js改成17版本
+    2、卸载不需要的包：npm uninstall
+            "@testing-library/jest-dom": "^5.17.0",
+            "@testing-library/react": "^13.4.0",
+            "@testing-library/user-event": "^13.5.0"
+    3、下载17版本：
+        npm install react@17 react-dom@17 react-router-dom@5
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 阶段二（创建目录结构）：
+    |-public
+    |-src
+    |--actions 存放redux 
+    |--componemts 一般组件
+    |--pages 路由组件
+    |--request
+    |--store 存放redux
+    |--utils
+    |---App.js
+    |---constant.js redux 常量
+    |---index.js
 
-## Available Scripts
+## 阶段三（配置路由）：
+    1、memo 用于优化函数组件
+    2、app下：
+        <Route path='/' component={Home} exact></Route>
+        <Route path='/login' component={Login}></Route>
+    3、index.js下：
+        ReactDOM.render(
+        // 浏览器路由
+        <BrowserRouter>
+            {/* 精准匹配 */}
+            <Switch>
+                {/* 配置路由规则 */}
+                <Route path="/" component={App}></Route>
+            </Switch>
+        </BrowserRouter>
+        ,document.getElementById('root'))
 
-In the project directory, you can run:
+### 优化:
+    1、PureComponent 优化 类式组件
+    2、lazy与Suspense 实现懒加载
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 样式引入：Bootstrap + 阿里图标
+    <link rel="stylesheet" href="http://localhost:8000/main.css">
+    <link rel="stylesheet" href="/icon/iconfont.css">

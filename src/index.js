@@ -1,17 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import ReactDOM from 'react-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// 引入浏览器路由 精准匹配 路由
+import { BrowserRouter,Switch,Route  } from 'react-router-dom'
+// 退回17版本
+ReactDOM.render(
+    // 浏览器路由
+    <BrowserRouter>
+        {/* 精准匹配 */}
+        <Switch>
+            {/* 配置路由规则 */}
+            <Route path="/" component={App}></Route>
+        </Switch>
+    </BrowserRouter>
+    ,document.getElementById('root'))
