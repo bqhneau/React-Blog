@@ -10,9 +10,14 @@ import Home from "./pages/Home";
 import { memo,lazy,Suspense } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-// 懒加载
+// 路由懒加载
 const Login = lazy(() => import('./pages/Login'))
 const Regist = lazy(() => import('./pages/Regist'))
+
+const ArticleNew = lazy(() => import('./pages/ArticleNew'))
+const Profile = lazy(() => import('./pages/Profile'))
+const Setting = lazy(() => import('./pages/Setting'))
+
 
 
 function App() {
@@ -28,6 +33,10 @@ function App() {
         <Route path='/' component={Home} exact></Route>
         <Route path='/login' component={Login}></Route>
         <Route path='/regist' component={Regist}></Route>
+        
+        <Route path='/article/new' component={ArticleNew}></Route>
+        <Route path='/setting' component={Setting}></Route>
+        <Route path='/profile' component={Profile}></Route>
       </Switch>
       </Suspense>
     </div>
